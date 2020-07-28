@@ -72,37 +72,3 @@ function appraisals (CompiledThemesForCouples){
 let pashka = appraisals(CompiledThemesForCouples);
 console.log('Оценки парам :' , pashka);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

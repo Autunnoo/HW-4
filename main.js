@@ -12,63 +12,56 @@ const girls = (students.slice(2,4) + ',' + students.slice(5)).split(','),
 // 1
 
 function studentsСouple(boys, girls) {
-	let boy = [...boys],
-		girl = [...girls],
-		groupStudents = [];
-	for (let i = 0; i < boy.length; i++) {
-		groupStudents.push([boy[i], girl[i]]);
+	let groupStudents = [];
+	for (let i = 0; i < boys.length; i++) {
+		groupStudents.push([boys[i], girls[i]]);
 	};
 	return groupStudents;
 };
-const CoupleOfStudents = studentsСouple(boys, girls);
+const CoupleOfStudents = studentsСouple(boys, girls).slice();
 
-console.log('Студенческие пары: ', CoupleOfStudents);
+console.log('#1 Студенческие пары: ', CoupleOfStudents);
 
 
 // 2 
 
 function ComposingWithThemes (CoupleOfStudents, themes) {
-	let g = CoupleOfStudents.slice();
-	let t = [...themes];
 	let result = [];
 
-	for (let i = 0; i < t.length; i++){
-		result.push([g[i].join(' i ') + ' ,Тема пары : ' +  t[i]]);
+	for (let i = 0; i < themes.length; i++){
+		result.push([CoupleOfStudents.slice()[i].join(' i ') + ' ,Тема пары : ' +  themes[i]]);
 	}
 	return result;
 }
 let CompiledThemesForCouples = ComposingWithThemes(CoupleOfStudents, themes);
-console.log('Темы занятий для пар :' ,CompiledThemesForCouples);
+console.log('#2 Темы занятий для пар :' ,CompiledThemesForCouples);
 
 
 // 3 
 
 function аssessing (students, marks){
-	let s = [...students],
-		m = [...marks]
-		result = [];
+	let	result = [];
 
-		for (let i = 0; i < s.length; i++){
-			result.push([s[i], m[i]])
+		for (let i = 0; i < students.length; i++){
+			result.push([students[i], marks[i]])
 		}
 
 		return result;
 }
 let CompilingStudentGrades = аssessing(students, marks);
-console.log('Оценки студентов :' , CompilingStudentGrades);
+console.log('#3 Оценки студентов :' , CompilingStudentGrades);
 
 // 4
 
 function appraisals (CompiledThemesForCouples){
-	let с = [...CompiledThemesForCouples],
-		result = [];
+	let result = [];
 
-	for (let i = 0; i < с.length; i++){
-		result.push([с[i] + ' -  Оценка ' +  Math.ceil(Math.random() * 5)]);
+	for (let i = 0; i < CompiledThemesForCouples.length; i++){
+		result.push([CompiledThemesForCouples[i] + ' -  Оценка ' +  Math.ceil(Math.random() * 5)]);
 	}
 
 	return result;
 }
 let pashka = appraisals(CompiledThemesForCouples);
-console.log('Оценки парам :' , pashka);
+console.log('#4 Оценки парам :' , pashka);
 
